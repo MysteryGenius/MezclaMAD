@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Mizcla</string>
+    <string name="title_home">Search</string>
+    <string name="title_dashboard">Maps</string>
+    <string name="title_notifications">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
