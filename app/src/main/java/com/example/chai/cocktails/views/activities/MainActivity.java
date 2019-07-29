@@ -17,6 +17,7 @@ import com.example.chai.cocktails.views.fragments.GlassesFragment;
 import com.example.chai.cocktails.views.fragments.IngredientFragment;
 import com.example.chai.cocktails.views.fragments.LocationFragment;
 import com.example.chai.cocktails.views.fragments.SearchFragment;
+import com.example.chai.cocktails.views.fragments.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity
         implements GlassesFragment.OnFragmentInteractionListener,
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity
 
         categoriesFragment = new SearchFragment();
         mapFragment = new LocationFragment();
-        ingredientFragment = new IngredientFragment();
+        ingredientFragment = new SettingsFragment();
 
         mainViewModel = ViewModelProviders.of(this)
                 .get(MainViewModel.class);

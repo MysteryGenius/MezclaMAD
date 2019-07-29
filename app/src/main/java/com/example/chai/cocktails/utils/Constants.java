@@ -1,7 +1,7 @@
 package com.example.chai.cocktails.utils;
 
 public class Constants {
-    public static final String BASE_URL = "https://www.thecocktaildb.com/api/json/v1/1/";
+    public static final String BASE_URL = "https://www.thecocktaildb.com/api/json/v2/8673533/";
 
     public static final String FILTER_CATEGORY = "filter.php?c=";
     public static final String FILTER_GLASS = "filter.php?g=";
