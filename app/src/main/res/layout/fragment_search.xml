@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -13,10 +14,11 @@
         android:layout_marginEnd="99dp"
         android:layout_marginBottom="23dp"
         android:ems="10"
-        android:fontFamily="sans-serif-light"
+        android:fontFamily="sans-serif-thin"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/submitBtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,22 +30,34 @@
         android:layout_marginTop="23dp"
         android:layout_marginEnd="162dp"
         android:fontFamily="sans-serif-thin"
-        android:text="Submit"
+        android:text="Search By Ingredients"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
 
-    <TextView
-        android:id="@+id/textView"
+    <EditText
+        android:id="@+id/SearchByName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="171dp"
-        android:layout_marginBottom="298dp"
-        android:text="hello world"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-thin"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/nameBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/submitBtn" />
+
+    <Button
+        android:id="@+id/nameBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="Search by name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SearchByName" />
+
 </android.support.constraint.ConstraintLayout>

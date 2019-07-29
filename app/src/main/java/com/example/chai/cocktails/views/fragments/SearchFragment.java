@@ -22,6 +22,9 @@ public class SearchFragment extends Fragment {
     Button submitBtn;
     TextView checkTxt;
 
+    EditText searchName;
+    Button nameBtn;
+
     public SearchFragment() {
     }
 
@@ -36,11 +39,20 @@ public class SearchFragment extends Fragment {
         editText = view.findViewById(R.id.editText);
         submitBtn = view.findViewById(R.id.submitBtn);
         checkTxt = view.findViewById(R.id.textView);
+        searchName = view.findViewById(R.id.SearchByName);
+        nameBtn = view.findViewById(R.id.nameBtn);
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 submitBtnHandler();
+            }
+        });
+
+        nameBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                nameBtnHandler();
             }
         });
 
@@ -51,6 +63,14 @@ public class SearchFragment extends Fragment {
         Intent intent = new Intent(view.getContext(), DrinkDetailListingActivity.class);
         intent.putExtra(Constants.CATEGORY_NAME, ingredients);
         intent.putExtra(Constants.TYPE, Constants.FILTER_INGREDIENTS);
+        view.getContext().startActivity(intent);
+    }
+
+    void nameBtnHandler(){
+        String ingredients = searchName.getText().toString();
+        Intent intent = new Intent(view.getContext(), DrinkDetailListingActivity.class);
+        intent.putExtra(Constants.CATEGORY_NAME, ingredients);
+        intent.putExtra(Constants.TYPE, Constants.LOOKUP_BY_NAME);
         view.getContext().startActivity(intent);
     }
     public interface OnFragmentInteractionListener {

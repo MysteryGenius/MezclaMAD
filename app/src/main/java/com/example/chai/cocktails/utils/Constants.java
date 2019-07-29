@@ -7,6 +7,7 @@ public class Constants {
     public static final String FILTER_GLASS = "filter.php?g=";
     public static final String FILTER_INGREDIENTS = "filter.php?i=";
     public static final String LOOKUP_BY_ID = "lookup.php?i=";
+    public static final String LOOKUP_BY_NAME = "search.php?s=";
 
     public static final String CATEGORY_NAME = "categoryName";
     public static final String TYPE = "type";
