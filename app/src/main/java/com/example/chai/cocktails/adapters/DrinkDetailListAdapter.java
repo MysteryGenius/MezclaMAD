@@ -52,8 +52,8 @@ public class DrinkDetailListAdapter extends RecyclerView.Adapter<DrinkDetailList
     private void showLogo(String url, ImageView imageView) {
         GlideApp
                 .with(context)
-                .load(url)
-                .centerCrop()
+                .load(url)//load image url from the api call
+                .centerCrop() //crop the images
                 .apply(RequestOptions.circleCropTransform())
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(imageView);
@@ -62,7 +62,7 @@ public class DrinkDetailListAdapter extends RecyclerView.Adapter<DrinkDetailList
     @Override
     public int getItemCount() {
         return drinks.size();
-    }
+    } //retrieve number of drinks
 
     class DrinkDetailViewHolder extends RecyclerView.ViewHolder {
 

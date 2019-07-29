@@ -43,14 +43,14 @@ public class LocationFragment extends Fragment {
 
                 mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
+                mMap.clear(); //clear old markers
+
                 // Enable Zoom
                 mMap.getUiSettings().setZoomGesturesEnabled(true);
 
                 if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                     mMap.setMyLocationEnabled(true);
                 }
-
-                mMap.clear(); //clear old markers
 
 
                 //To add marker

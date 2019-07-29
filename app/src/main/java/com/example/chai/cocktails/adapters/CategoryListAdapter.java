@@ -62,7 +62,7 @@ public class CategoryListAdapter extends
 
         public CategoryItemViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
+            ButterKnife.bind(this, itemView); //Binding of the views using ButterKnife
             categoryItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

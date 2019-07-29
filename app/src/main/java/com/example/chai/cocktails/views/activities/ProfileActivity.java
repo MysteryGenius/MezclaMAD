@@ -50,6 +50,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         Confirm = (Button) findViewById(R.id.btnConfirm);
 
+        Confirm.setEnabled(false); //set to disabled until the display picture has been uploaded successfully
+
         Confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +77,7 @@ public class ProfileActivity extends AppCompatActivity {
         final Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
 
         if (s1.isEmpty()) {
-            DisplayName.setError("Name Required");
+            DisplayName.setError("Name Required"); //if the text field is empty
             DisplayName.requestFocus();
             return;
         }
@@ -84,7 +86,7 @@ public class ProfileActivity extends AppCompatActivity {
         if (user != null) {
             UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
                     .setDisplayName(s1)
-                    .setPhotoUri(Uri.parse(profileImageUrl))
+                    .setPhotoUri(Uri.parse(profileImageUrl)) //set display picture
                     .build();
 
             user.updateProfile(profile)
@@ -93,7 +95,7 @@ public class ProfileActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(ProfileActivity.this, "Profile Updated", Toast.LENGTH_SHORT);
-                                startActivity(intent);
+                                startActivity(intent); //redirected to home page
                             }
                         }
                     });
@@ -105,20 +107,20 @@ public class ProfileActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == CHOOSE_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null){
-            uriProfileImage = data.getData();
+            uriProfileImage = data.getData(); //if uri of the image is retrieved
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uriProfileImage);
                 imgView.setImageBitmap(bitmap);
 
-                uploadImageToFirebaseStorage();
+                uploadImageToFirebaseStorage(); //upload to FB storage
             } catch (IOException e) {
-                e.printStackTrace();
+                e.printStackTrace(); //print exception message
             }
         }
     }
 
     private void uploadImageToFirebaseStorage() {
-        final StorageReference profileImageRef = FirebaseStorage.getInstance().getReference("profilepics/" + System.currentTimeMillis() + ".jpg");
+        final StorageReference profileImageRef = FirebaseStorage.getInstance().getReference("profilepics/" + System.currentTimeMillis() + ".jpg"); //saved image under specified directory in FB storage
 
         profileImageRef.putFile(uriProfileImage)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -130,12 +132,13 @@ public class ProfileActivity extends AppCompatActivity {
                             public void onSuccess(Uri uri) {
                                 profileImageUrl = uri.toString();
                                 Toast.makeText(getApplicationContext(), "Image Upload Successful", Toast.LENGTH_SHORT).show();
+                                Confirm.setEnabled(true); //once image has been uploaded successfully, enable confirm button
                             }
                         })
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show(); //if failed to upload the image
                                     }
                                 });
                     }
@@ -143,7 +146,7 @@ public class ProfileActivity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show(); //thrown if failed to retrieve the image
                     }
                 });
     }
@@ -152,6 +155,6 @@ public class ProfileActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Profile Image"), CHOOSE_IMAGE);
+        startActivityForResult(Intent.createChooser(intent, "Select Profile Image"), CHOOSE_IMAGE); //select profile image from user's device storage
     }
 }

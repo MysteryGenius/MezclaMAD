@@ -39,7 +39,7 @@ public class ProfileViewActivity extends AppCompatActivity {
         navUserPhoto = findViewById(R.id.navUserPhoto);
         editButton = findViewById(R.id.btnEdit);
 
-        final Intent intent  = new Intent(ProfileViewActivity.this, ProfileActivity.class);
+        final Intent intent  = new Intent(ProfileViewActivity.this, ProfileActivity.class); //When clicked on Edit Button, it will redirect the user to edit profile page
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
