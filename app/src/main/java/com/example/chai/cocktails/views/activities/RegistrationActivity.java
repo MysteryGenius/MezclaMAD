@@ -41,7 +41,7 @@ public class RegistrationActivity extends AppCompatActivity {
         Register = (Button) findViewById(R.id.btnRegister);
         LoggedIn = (TextView) findViewById(R.id.txtLogin);
 
-        final Intent intent = new Intent(this, MainActivity.class);
+        final Intent intent = new Intent(this, LoginActivity.class);
         LoggedIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

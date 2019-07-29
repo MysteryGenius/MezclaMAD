@@ -1,8 +1,11 @@
 package com.example.chai.cocktails.views.fragments;
 
 
+import android.Manifest;
 import android.app.Fragment;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +22,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class LocationFragment extends Fragment {
     private MapView mMapView;
-    private GoogleMap googleMap;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,23 +30,36 @@ public class LocationFragment extends Fragment {
         mMapView = view.findViewById(R.id.mapView);
         mMapView.onCreate(savedInstanceState);
         mMapView.onResume();
+
         try {
-            MapsInitializer.initialize(getActivity().getApplicationContext());
+            MapsInitializer.initialize(getActivity());
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         mMapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap mMap) {
-                googleMap = mMap;
-                googleMap.setMyLocationEnabled(true);
+
+                mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+                // Enable Zoom
+                mMap.getUiSettings().setZoomGesturesEnabled(true);
+
+                if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                    mMap.setMyLocationEnabled(true);
+                }
+
+                mMap.clear(); //clear old markers
+
+
                 //To add marker
                 LatLng singapore = new LatLng(1.28967, 103.85007);
 
 
                 // For zooming functionality
                 CameraPosition cameraPosition = new CameraPosition.Builder().target(singapore).zoom(14).build();
-                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
                 //Creation of individual markers
                 mMap.addMarker(new MarkerOptions()

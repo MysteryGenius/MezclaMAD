@@ -69,12 +69,13 @@
 
     <TextView
         android:id="@+id/txtRegister"
-        android:layout_width="137dp"
-        android:layout_height="18dp"
-        android:layout_marginBottom="50dp"
+        android:layout_width="153dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="48dp"
         android:text="New User? Click Here"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
