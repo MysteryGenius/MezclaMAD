@@ -74,7 +74,7 @@ public class RegistrationActivity extends AppCompatActivity {
         final EditText Email = (EditText) findViewById(R.id.txtRegEmail);
         final EditText ConfirmPassword = (EditText) findViewById(R.id.txtRegCPassword);
 
-        final Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+        final Intent intent = new Intent(RegistrationActivity.this, ProfileActivity.class);
 
         String s1 = Email.getText().toString().trim(); //Eliminate leading and trailing spaces
         String s2 = Password.getText().toString().trim();

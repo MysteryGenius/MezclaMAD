@@ -19,6 +19,7 @@
             android:value="AIzaSyCMPf0Nxy7Q1WJjrssZNx06Y1SsXifskx4" />
 
         <activity android:name=".views.activities.ProfileActivity"></activity>
+        <activity android:name=".views.activities.ProfileViewActivity"></activity>
         <activity android:name=".views.activities.RegistrationActivity" />
         <activity android:name=".views.activities.MainActivity"></activity>
         <activity

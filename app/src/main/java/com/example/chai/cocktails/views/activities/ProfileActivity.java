@@ -97,8 +97,6 @@ public class ProfileActivity extends AppCompatActivity {
                             }
                         }
                     });
-            String s2 = user.getDisplayName();
-            Log.v(TAG, s2);
         }
     }
 
