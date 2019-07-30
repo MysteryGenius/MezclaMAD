@@ -38,10 +38,10 @@ public class MainActivity extends AppCompatActivity
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    setFragment(categoriesFragment);
+                    setFragment(categoriesFragment); //Navigate to Homepage
                     return true;
                 case R.id.navigation_dashboard:
-                    setFragment(mapFragment);
+                    setFragment(mapFragment); //Navigate to Maps
                     return true;
                 case R.id.navigation_notifications:
                     setFragment(ingredientFragment);
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity
         }
     };
 
-    private void setFragment(Fragment fragment) {
+    private void setFragment(Fragment fragment) { //Use FragmentManager to switch from fragment to fragment
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.mainFrame, fragment);
         transaction.commit();
