@@ -30,9 +30,9 @@ public class LoginActivity extends AppCompatActivity {
         Register = (TextView) findViewById(R.id.txtRegister);
 
 
-        mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance(); //Obtain an instance of FB Auth
 
-        final Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+        final Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class); //Intent from Login Page to Registration Page
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,11 +66,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(LoginActivity.this, "Logged In Successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Logged In Successfully", Toast.LENGTH_SHORT).show(); //once logged in successfully, redirect user to homepage
                     startActivity(intent);
 
                 } else {
-                    Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show(); //else return wrong password exception message
                 }
             }
         });

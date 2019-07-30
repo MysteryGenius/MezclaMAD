@@ -2,7 +2,7 @@ package com.mezcla.chai.cocktails.models.pojos;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DrinkFullDetail {
+public class DrinkFullDetail { //Model class for API response to obtain properties of CocktailDB
     @SerializedName("idDrink")
     int id;
 

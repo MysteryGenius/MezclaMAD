@@ -73,7 +73,7 @@ public class DrinkDetailListingActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-    private void subscribeToResponseObserver() {
+    private void subscribeToResponseObserver() { //
         if (type != null && name != null) {
             viewModel.getApiResponse(type, name).observe(this, new Observer<DrinkListingAPIResponse>() {
                 @Override
@@ -92,7 +92,7 @@ public class DrinkDetailListingActivity extends AppCompatActivity {
 
     }
 
-    private void displayNetworkingErrorToast() {
+    private void displayNetworkingErrorToast() { //Unable to retrieve the list due to network error
         Toast.makeText(this,
                 "Unable to get the list",
                 Toast.LENGTH_LONG).show();

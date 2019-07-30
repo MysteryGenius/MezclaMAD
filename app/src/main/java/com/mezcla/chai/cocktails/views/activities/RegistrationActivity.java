@@ -61,7 +61,7 @@ public class RegistrationActivity extends AppCompatActivity {
         Pattern passwordPattern;
         Matcher passwordMatcher;
 
-        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=]).{8,16}$";
+        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=]).{8,16}$"; //password validation using REGEX
 
         passwordPattern = Pattern.compile(PASSWORD_PATTERN);
         passwordMatcher = passwordPattern.matcher(password);
@@ -81,31 +81,32 @@ public class RegistrationActivity extends AppCompatActivity {
         String s3 = ConfirmPassword.getText().toString().trim();
 
         if (isValidPassword(s2)) {
-            Toast.makeText(RegistrationActivity.this, "Valid Password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegistrationActivity.this, "Valid Password", Toast.LENGTH_SHORT).show(); // if the password meets the pattern requirements
             if (s2.equals(s3)) {
-                Toast.makeText(RegistrationActivity.this, "Passwords match", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegistrationActivity.this, "Passwords match", Toast.LENGTH_SHORT).show(); // if both passwords match
                 mAuth.createUserWithEmailAndPassword(s1, s2).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(RegistrationActivity.this, "You have registered successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(intent);
+                            startActivity(intent); //redirects user to login page to log in
 
                         } else {
                             if(task.getException() instanceof FirebaseAuthUserCollisionException){
-                                Toast.makeText(RegistrationActivity.this, "You are already registered", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegistrationActivity.this, "You are already registered", Toast.LENGTH_SHORT).show(); //if user already exists on FB Auth
                             }
                             else {
-                                Toast.makeText(RegistrationActivity.this, "Invalid email", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegistrationActivity.this, "Invalid email", Toast.LENGTH_SHORT).show(); //if the email is not valid
                             }
                         }
                     }
                 });
             } else {
-                Toast.makeText(RegistrationActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegistrationActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show(); //if the two passwords do not match
             }
         } else {
             Toast.makeText(RegistrationActivity.this, "Please enter a password between 8-16 characters with at least ONE lowercase and uppercase character, ONE digit, and ONE special character", Toast.LENGTH_LONG).show();
+            //if password entered does not meet the pattern requirements
         }
     }
 }
