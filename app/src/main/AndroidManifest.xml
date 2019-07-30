@@ -18,21 +18,43 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCMPf0Nxy7Q1WJjrssZNx06Y1SsXifskx4" />
 
-        <activity android:name="com.mezcla.chai.cocktails.views.activities.ProfileActivity"></activity>
-        <activity android:name="com.mezcla.chai.cocktails.views.activities.ProfileViewActivity"></activity>
-        <activity android:name="com.mezcla.chai.cocktails.views.activities.RegistrationActivity" />
-        <activity android:name="com.mezcla.chai.cocktails.views.activities.MainActivity"></activity>
+        <activity android:name="com.mezcla.chai.cocktails.views.activities.ProfileActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.mezcla.chai.cocktails.views.activities.ProfileViewActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.mezcla.chai.cocktails.views.activities.RegistrationActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.mezcla.chai.cocktails.views.activities.MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name="com.mezcla.chai.cocktails.views.activities.LoginActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.mezcla.chai.cocktails.views.activities.DrinkDetailListingActivity" />
-        <activity android:name="com.mezcla.chai.cocktails.views.activities.DrinkFullDetailActivity" />
+
+        <activity android:name="com.mezcla.chai.cocktails.views.activities.DrinkDetailListingActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="com.mezcla.chai.cocktails.views.activities.DrinkFullDetailActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
     <uses-feature

@@ -19,6 +19,7 @@ public class ProfileViewActivity extends AppCompatActivity {
     private TextView navUserEmail;
     private ImageView navUserPhoto;
     private Button editButton;
+    private Button logOutButton;
 
     FirebaseAuth mAuth;
     FirebaseUser currentUser;
@@ -37,12 +38,24 @@ public class ProfileViewActivity extends AppCompatActivity {
         navUserEmail = findViewById(R.id.navUserEmail);
         navUserPhoto = findViewById(R.id.navUserPhoto);
         editButton = findViewById(R.id.btnEdit);
+        logOutButton = findViewById(R.id.btnLogOut);
+
 
         final Intent intent  = new Intent(ProfileViewActivity.this, ProfileActivity.class); //When clicked on Edit Button, it will redirect the user to edit profile page
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(intent);
+            }
+        });
+
+        final Intent intent2 = new Intent(ProfileViewActivity.this, LoginActivity.class); //When clicked on the Logout button, it will redirect the user to the login page
+        logOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                startActivity(intent2);
             }
         });
 

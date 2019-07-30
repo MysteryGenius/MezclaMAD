@@ -44,14 +44,23 @@
 
     <Button
         android:id="@+id/btnEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_width="202dp"
+        android:layout_height="46dp"
         android:text="Edit Profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.537" />
+        app:layout_constraintVertical_bias="0.549" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="92dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="243dp"
+        android:text="Log out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
