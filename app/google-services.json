@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:362935520339:android:96ebcb1c336946df",
         "android_client_info": {
-          "package_name": "com.example.chai.cocktails"
+          "package_name": "com.mezcla.chai.cocktails"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "362935520339-qhao7ob73efbk58th25rum3risfit6rh.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.chai.cocktails",
+            "package_name": "com.mezcla.chai.cocktails",
             "certificate_hash": "e7e9b349dc0403f494e31e672ca70c3e727bfb97"
           }
         },
