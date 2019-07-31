@@ -31,3 +31,5 @@ public class DrinkFullDetailViewModel extends ViewModel {
         apiResponseObservable = repository.getDataFullDetails(id);
     }
 }
+
+
